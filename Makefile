@@ -29,7 +29,7 @@ check:
 			cargo +nightly-2024-12-01 clippy --target=nanox && \
 			cargo +nightly-2024-12-01 clippy --target=stax && \
 			cargo install cargo-audit && cargo audit && \
-			cargo install --locked cargo-deny && cargo +nightly-2024-12-01 deny check \
+			cargo install --locked cargo-deny@0.17.0 && cargo +nightly-2024-12-01 deny check \
 		"
 
 _run-speculos:
