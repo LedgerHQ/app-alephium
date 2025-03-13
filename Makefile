@@ -26,10 +26,10 @@ check:
 			echo 'Cargo fmt' && \
 			cargo fmt --all -- --check && \
 			echo 'Cargo clippy' && \
-			cargo +nightly-2023-11-10 clippy --target=nanox && \
-			cargo +nightly-2023-11-10 clippy --target=stax && \
+			cargo +nightly-2024-12-01 clippy --target=nanox && \
+			cargo +nightly-2024-12-01 clippy --target=stax && \
 			cargo install cargo-audit && cargo audit && \
-			cargo install --locked cargo-deny && cargo +nightly-2023-11-10 deny check \
+			cargo install --locked cargo-deny && cargo +nightly-2024-12-01 deny check \
 		"
 
 _run-speculos:

@@ -38,6 +38,7 @@ pub struct SignTxContext {
 }
 
 impl SignTxContext {
+    #[allow(static_mut_refs)]
     pub fn new() -> Self {
         SignTxContext {
             path: [0; PATH_LENGTH],
