@@ -1,6 +1,6 @@
 [package]
 name = "alephium"
-version = "0.4.2"
+version = "0.4.3"
 authors = ["alephium devs"]
 edition = "2021"
 license = "MIT"
