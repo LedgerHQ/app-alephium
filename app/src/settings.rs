@@ -7,11 +7,13 @@ pub const SETTINGS_SIZE: usize = 10;
 pub static mut SETTINGS_DATA: NVMData<AtomicStorage<[u8; SETTINGS_SIZE]>> =
     NVMData::new(AtomicStorage::new(&[0u8; SETTINGS_SIZE]));
 
+#[allow(static_mut_refs)]
 pub fn is_blind_signing_enabled() -> bool {
     let settings = unsafe { SETTINGS_DATA.get_mut() };
     settings.get_ref()[0] != 0
 }
 
+#[allow(static_mut_refs)]
 #[cfg(not(any(target_os = "stax", target_os = "flex")))]
 pub fn toggle_blind_signing_setting() {
     let settings = unsafe { SETTINGS_DATA.get_mut() };

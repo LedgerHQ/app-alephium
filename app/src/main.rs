@@ -47,6 +47,7 @@ extern "C" fn sample_main() {
         }
     }
 
+    #[allow(static_mut_refs)]
     #[cfg(any(target_os = "stax", target_os = "flex"))]
     {
         use crate::settings::SETTINGS_DATA;
@@ -55,10 +56,10 @@ extern "C" fn sample_main() {
         use ledger_device_sdk::nbgl::{NbglGlyph, NbglHomeAndSettings, PageIndex};
 
         const APP_ICON: NbglGlyph = NbglGlyph::from_include(include_gif!("alph_64x64.gif", NBGL));
-        let settings_strings: &[[&str; 2]] = &[["Blind signing", "Enable blind signing"]];
+        let settings_strings = [["Blind signing", "Enable blind signing"]];
         let mut home_and_settings = NbglHomeAndSettings::new()
             .glyph(&APP_ICON)
-            .settings(unsafe { SETTINGS_DATA.get_mut() }, settings_strings)
+            .settings(unsafe { SETTINGS_DATA.get_mut() }, &settings_strings)
             .infos(
                 "Alephium",
                 env!("CARGO_PKG_VERSION"),

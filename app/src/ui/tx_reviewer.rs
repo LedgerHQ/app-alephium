@@ -44,6 +44,7 @@ pub struct TxReviewer {
 }
 
 impl TxReviewer {
+    #[allow(static_mut_refs)]
     pub fn new() -> Self {
         Self {
             buffer: unsafe { SwappingBuffer::new(&mut DATA) },
