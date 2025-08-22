@@ -28,15 +28,15 @@
   },
   "dependencies": {
     "@alephium/web3": "^1.5.0",
-    "@ledgerhq/hw-transport": "^6.31.4",
+    "@ledgerhq/hw-transport": "^6.31.9",
     "blakejs": "^1.2.1"
   },
   "devDependencies": {
     "@alephium/cli": "^1.5.0",
     "@alephium/web3-test": "^1.5.0",
     "@alephium/web3-wallet": "^1.5.0",
-    "@ledgerhq/hw-transport-node-hid": "6.29.1",
-    "@ledgerhq/hw-transport-node-speculos": "6.29.0",
+    "@ledgerhq/hw-transport-node-hid": "^6.29.10",
+    "@ledgerhq/hw-transport-node-speculos": "^6.29.9",
     "@types/elliptic": "^6.4.13",
     "@types/jest": "^27.5.1",
     "@types/node": "^20.8.10",
