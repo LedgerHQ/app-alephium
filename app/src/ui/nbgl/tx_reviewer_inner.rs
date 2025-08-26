@@ -45,7 +45,7 @@ impl TxReviewerInner {
         } else {
             "Review transaction to send assets"
         };
-        if self.get_reviewer().start(message, "") {
+        if self.get_reviewer().start(message, None) {
             Ok(())
         } else {
             NbglReviewStatus::new().show(false);

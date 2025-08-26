@@ -21,7 +21,7 @@ fn new_nbgl_review(tx_type: TransactionType, blind: bool) -> NbglStreamingReview
 
 fn nbgl_review_hash(hash: &str) -> bool {
     let reviewer = new_nbgl_review(TransactionType::Operation, false);
-    if !reviewer.start("Review Hash", "") {
+    if !reviewer.start("Review Hash", None) {
         return false;
     }
     let fields = [Field {
