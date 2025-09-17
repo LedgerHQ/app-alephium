@@ -137,7 +137,7 @@ impl<'a, const RAM: usize, const FLASH: usize> SwappingBuffer<'a, RAM, FLASH> {
     }
 }
 
-impl<'a, const RAM: usize, const FLASH: usize> Writable for SwappingBuffer<'a, RAM, FLASH> {
+impl<const RAM: usize, const FLASH: usize> Writable for SwappingBuffer<'_, RAM, FLASH> {
     fn write(&mut self, bytes: &[u8]) -> bool {
         self.write(bytes).is_ok()
     }
