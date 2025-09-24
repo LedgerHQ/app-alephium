@@ -35,3 +35,4 @@ jobs:
       - run: make run-github-ci device=nanox path=nanox
       - run: make run-github-ci device=stax path=stax
       - run: make run-github-ci device=flex path=flex
+      - run: make run-github-ci device=apex_p path=apex_p
