@@ -9,9 +9,9 @@ use crate::{
     token_verifier::TokenVerifier,
     ui::bytes_to_string,
 };
-#[cfg(any(target_os = "stax", target_os = "flex"))]
+#[cfg(any(target_os = "stax", target_os = "flex", target_os = "apex_p"))]
 use ledger_device_sdk::nbgl::Field;
-#[cfg(not(any(target_os = "stax", target_os = "flex")))]
+#[cfg(any(target_os = "nanosplus", target_os = "nanox"))]
 use ledger_device_sdk::ui::gadgets::Field;
 use ledger_device_sdk::NVMData;
 use utils::{
@@ -568,13 +568,13 @@ impl TxReviewer {
         self.inner.check_blind_signing()
     }
 
-    #[cfg(any(target_os = "stax", target_os = "flex"))]
+    #[cfg(any(target_os = "stax", target_os = "flex", target_os = "apex_p"))]
     #[inline]
     pub fn display_settings(&self) -> bool {
         self.inner.display_settings
     }
 
-    #[cfg(any(target_os = "stax", target_os = "flex"))]
+    #[cfg(any(target_os = "stax", target_os = "flex", target_os = "apex_p"))]
     #[inline]
     pub fn reset_display_settings(&mut self) {
         self.inner.reset_display_settings()
