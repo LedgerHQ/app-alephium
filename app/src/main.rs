@@ -59,7 +59,7 @@ extern "C" fn sample_main() {
         const APP_ICON: NbglGlyph = NbglGlyph::from_include(include_gif!("alph_64x64.gif", NBGL));
         #[cfg(target_os = "apex_p")]
         const APP_ICON: NbglGlyph = NbglGlyph::from_include(include_gif!("alph_48x48.png", NBGL));
-        
+
         let settings_strings = &[["Blind signing", "Enable blind signing"]];
         let mut home_and_settings = NbglHomeAndSettings::new()
             .glyph(&APP_ICON)
