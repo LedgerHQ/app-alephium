@@ -28,7 +28,7 @@ extern "C" fn sample_main() {
     let mut sign_tx_context: SignTxContext = SignTxContext::new();
     let mut tx_reviewer: TxReviewer = TxReviewer::new();
 
-    #[cfg(not(any(target_os = "stax", target_os = "flex")))]
+    #[cfg(any(target_os = "nanosplus", target_os = "nanox"))]
     {
         use crate::ui::bagl::home::MainPages;
         use handler::Ins;
@@ -48,14 +48,18 @@ extern "C" fn sample_main() {
     }
 
     #[allow(static_mut_refs)]
-    #[cfg(any(target_os = "stax", target_os = "flex"))]
+    #[cfg(any(target_os = "stax", target_os = "flex", target_os = "apex_p"))]
     {
         use crate::settings::SETTINGS_DATA;
         use include_gif::include_gif;
         use ledger_device_sdk::nbgl::init_comm;
         use ledger_device_sdk::nbgl::{NbglGlyph, NbglHomeAndSettings, PageIndex};
 
+        #[cfg(any(target_os = "stax", target_os = "flex"))]
         const APP_ICON: NbglGlyph = NbglGlyph::from_include(include_gif!("alph_64x64.gif", NBGL));
+        #[cfg(target_os = "apex_p")]
+        const APP_ICON: NbglGlyph = NbglGlyph::from_include(include_gif!("alph_48x48.png", NBGL));
+
         let settings_strings = &[["Blind signing", "Enable blind signing"]];
         let mut home_and_settings = NbglHomeAndSettings::new()
             .glyph(&APP_ICON)
