@@ -7,6 +7,7 @@ release:
 	@make _release device=nanosplus
 	@make _release device=stax
 	@make _release device=flex
+	@make _release device=apex_p
 
 _release:
 	@docker run --rm -v $(shell pwd):/app -v ledger-alephium-cargo:/opt/.cargo $(ledger_app_builder) \
@@ -16,7 +17,7 @@ _release:
 			RUST_BACKTRACE=1 cargo ledger build $(device) -- -Z unstable-options && \
 			cp ./target/$(device)/release/alephium.hex ../$(device).hex && \
 			mv ./target/$(device)/release/app_$(device).json ../$(device).json && \
-			sed -i 's|target/$(device)/release/app.hex|$(device).hex|g;s|alph_16x16.gif|./app/alph_16x16.gif|g;s|alph_14x14.gif|./app/alph_14x14.gif|g;s|alph_32x32.gif|./app/alph_32x32.gif|g;s|alph_64x64.gif|./app/alph_64x64.gif|g' ../$(device).json \
+			sed -i 's|target/$(device)/release/app.hex|$(device).hex|g;s|alph_48x48.png|./app/alph_48x48.png|g;s|alph_32x32.png|./app/alph_32x32.png|g;s|alph_16x16.gif|./app/alph_16x16.gif|g;s|alph_14x14.gif|./app/alph_14x14.gif|g;s|alph_32x32.gif|./app/alph_32x32.gif|g;s|alph_64x64.gif|./app/alph_64x64.gif|g' ../$(device).json \
 		"
 
 check:
@@ -51,6 +52,9 @@ run-speculos-stax:
 
 run-speculos-flex:
 	@make _run-speculos device=flex path=flex
+
+run-speculos-apex_p:
+	@make _run-speculos device=apex_p path=apex_p
 
 clean:
 	cd app && cargo clean

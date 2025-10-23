@@ -19,7 +19,7 @@ dependencies = [
 
 [[package]]
 name = "alephium"
-version = "0.4.4"
+version = "0.4.5"
 dependencies = [
  "const-zero",
  "include_gif",
@@ -297,9 +297,9 @@ dependencies = [
 
 [[package]]
 name = "include_gif"
-version = "1.2.2"
+version = "1.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e142022621634b2f37faa976d6210d07fa804b0efa49e32a542b6532077d89a6"
+checksum = "4ed329eea6ba198654ceab2c4dd41637d4890dc3c2bba845a57b5f81dac6d6a6"
 dependencies = [
  "flate2",
  "image",
@@ -335,9 +335,9 @@ checksum = "03087c2bad5e1034e8cace5926dec053fb3790248370865f5117a7d0213354c8"
 
 [[package]]
 name = "ledger_device_sdk"
-version = "1.24.3"
+version = "1.25.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f80f410428e3eb6240fc8293dcb868e465dc684d90e4a164d08523c3d26a069a"
+checksum = "09036ac410062b454c252c590a04b188a004902f45b2ea5b3e83a22aa08f98ce"
 dependencies = [
  "const-zero",
  "include_gif",
@@ -350,9 +350,9 @@ dependencies = [
 
 [[package]]
 name = "ledger_secure_sdk_sys"
-version = "1.11.0"
+version = "1.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22c2932caa709fa439a18775665a7502c5061a6b77f6e63cabc84abdc10b4242"
+checksum = "cf8b843015b73dd2e10d749dd42e7e4c060d5b5b90df0dee90597857d2a6e520"
 dependencies = [
  "bindgen",
  "cc",

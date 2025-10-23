@@ -1,11 +1,11 @@
-#[cfg(not(any(target_os = "stax", target_os = "flex")))]
+#[cfg(any(target_os = "nanosplus", target_os = "nanox"))]
 pub mod bagl;
-#[cfg(any(target_os = "stax", target_os = "flex"))]
+#[cfg(any(target_os = "stax", target_os = "flex", target_os = "apex_p"))]
 pub mod nbgl;
 
-#[cfg(not(any(target_os = "stax", target_os = "flex")))]
+#[cfg(any(target_os = "nanosplus", target_os = "nanox"))]
 pub use bagl::{review_address, sign_hash_ui, tx_reviewer_inner::TxReviewerInner};
-#[cfg(any(target_os = "stax", target_os = "flex"))]
+#[cfg(any(target_os = "stax", target_os = "flex", target_os = "apex_p"))]
 pub use nbgl::{review_address, sign_hash_ui, tx_reviewer_inner::TxReviewerInner};
 
 use crate::error_code::ErrorCode;
