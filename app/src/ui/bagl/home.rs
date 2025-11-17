@@ -1,4 +1,4 @@
-use include_gif::include_gif;
+use ledger_device_sdk::include_gif;
 use ledger_device_sdk::io::{self, ApduHeader, Reply};
 use ledger_device_sdk::ui::{
     bagls,
@@ -7,7 +7,7 @@ use ledger_device_sdk::ui::{
     layout::Draw,
     screen_util,
 };
-use ledger_secure_sdk_sys::buttons::ButtonEvent;
+use ledger_device_sdk::sys::buttons::ButtonEvent;
 
 use crate::settings::{is_blind_signing_enabled, toggle_blind_signing_setting};
 

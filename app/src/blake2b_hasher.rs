@@ -1,5 +1,5 @@
 use crate::error_code::ErrorCode;
-use ledger_secure_sdk_sys::*;
+use ledger_device_sdk::sys::*;
 
 pub const BLAKE2B_HASH_SIZE: usize = 32;
 pub type Blake2bHash = [u8; BLAKE2B_HASH_SIZE];

@@ -51,7 +51,7 @@ extern "C" fn sample_main() {
     #[cfg(any(target_os = "stax", target_os = "flex", target_os = "apex_p"))]
     {
         use crate::settings::SETTINGS_DATA;
-        use include_gif::include_gif;
+        use ledger_device_sdk::include_gif;
         use ledger_device_sdk::nbgl::init_comm;
         use ledger_device_sdk::nbgl::{NbglGlyph, NbglHomeAndSettings, PageIndex};
 

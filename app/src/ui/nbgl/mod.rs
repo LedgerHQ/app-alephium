@@ -2,7 +2,7 @@ pub mod tx_reviewer_inner;
 
 use crate::{error_code::ErrorCode, public_key::sign_hash};
 use core::str::from_utf8;
-use include_gif::include_gif;
+use ledger_device_sdk::include_gif;
 use ledger_device_sdk::nbgl::{
     Field, NbglAddressReview, NbglChoice, NbglGlyph, NbglReviewStatus, NbglStreamingReview,
     TransactionType,
