@@ -1,12 +1,12 @@
 [package]
 name = "alephium"
-version = "0.4.5"
+version = "0.4.6"
 authors = ["alephium devs"]
 edition = "2021"
 license = "MIT"
 
 [dependencies]
-ledger_device_sdk = { version = "1.28.0", features=["sys"] }
+ledger_device_sdk = { version = "1.29.0", features=["sys"] }
 utils= { path = "../utils" }
 numtoa = "=0.2.4"
 shlex = { version = "1.3.0", default-features = false } # patch for ledger_device_sdk dependency
@@ -44,6 +44,3 @@ icon = "alph_32x32.png"
 
 [lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("apex_p", "stax", "flex", "nanox", "nanosplus"))'] }
-
-[patch.crates-io]
-ledger_device_sdk = {path = "../../ledger-device-rust-sdk/ledger_device_sdk" }
