@@ -37,7 +37,7 @@ describe('ledger wallet', () => {
     const transport = await createTransport()
     const app = new AlephiumApp(transport)
     const version = await app.getVersion()
-    expect(version).toBe('0.4.5')
+    expect(version).toBe('0.4.6')
     await app.close()
   })
 
