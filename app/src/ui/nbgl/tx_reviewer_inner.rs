@@ -3,7 +3,9 @@ use crate::{
     settings::is_blind_signing_enabled,
     ui::nbgl::{nbgl_review_warning, new_nbgl_review},
 };
-use ledger_device_sdk::nbgl::{Field, NbglReviewStatus, NbglStreamingReview, TransactionType};
+use ledger_device_sdk::nbgl::{
+    Field, NbglReviewStatus, NbglStreamingReview, NbglStreamingReviewStatus, TransactionType,
+};
 
 // Different Ledger devices use different UI libraries, so we've introduced the
 // `TxReviewInner` to facilitate the display of tx details across different devices.
@@ -58,11 +60,12 @@ impl TxReviewerInner {
         fields: &'a [Field<'a>],
         _message: &str,
     ) -> Result<(), ErrorCode> {
-        if self.get_reviewer().continue_review(fields) {
-            Ok(())
-        } else {
-            NbglReviewStatus::new().show(false);
-            Err(ErrorCode::UserCancelled)
+        match self.get_reviewer().next(fields) {
+            NbglStreamingReviewStatus::Next => Ok(()),
+            _ => {
+                NbglReviewStatus::new().show(false);
+                Err(ErrorCode::UserCancelled)
+            }
         }
     }
 

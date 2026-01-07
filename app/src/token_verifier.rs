@@ -82,7 +82,7 @@ impl TokenVerifier {
 }
 
 fn check_proof_size(size: usize) -> Result<(), ErrorCode> {
-    if size % BLAKE2B_HASH_SIZE != 0 {
+    if !size.is_multiple_of(BLAKE2B_HASH_SIZE) {
         Err(ErrorCode::InvalidTokenProofSize)
     } else {
         Ok(())

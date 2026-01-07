@@ -2,10 +2,10 @@ pub mod tx_reviewer_inner;
 
 use crate::{error_code::ErrorCode, public_key::sign_hash};
 use core::str::from_utf8;
-use include_gif::include_gif;
+use ledger_device_sdk::include_gif;
 use ledger_device_sdk::nbgl::{
     Field, NbglAddressReview, NbglChoice, NbglGlyph, NbglReviewStatus, NbglStreamingReview,
-    TransactionType,
+    NbglStreamingReviewStatus, TransactionType,
 };
 
 pub static APP_ICON: NbglGlyph = NbglGlyph::from_include(include_gif!("alph_64x64.gif", NBGL));
@@ -28,8 +28,11 @@ fn nbgl_review_hash(hash: &str) -> bool {
         name: "Hash",
         value: hash,
     }];
-    if !reviewer.continue_review(&fields) {
-        return false;
+    match reviewer.next(&fields) {
+        NbglStreamingReviewStatus::Next => {}
+        _ => {
+            return false;
+        }
     }
     reviewer.finish("Sign Hash")
 }
@@ -65,7 +68,7 @@ pub fn sign_hash_ui(path: &[u32], message: &[u8]) -> Result<([u8; 72], u32, u32)
 pub fn review_address(address: &str) -> Result<(), ErrorCode> {
     let result = NbglAddressReview::new()
         .glyph(&APP_ICON)
-        .verify_str("Verify Alephium address")
+        .review_title("Verify Alephium address")
         .show(address);
     if result {
         Ok(())

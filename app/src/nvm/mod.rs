@@ -1,5 +1,5 @@
+use ledger_device_sdk::sys::nvm_write;
 use ledger_device_sdk::NVMData;
-use ledger_secure_sdk_sys::nvm_write;
 
 use crate::error_code::ErrorCode;
 

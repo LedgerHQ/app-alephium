@@ -50,7 +50,7 @@ pub fn hash_of_public_key(pub_key: &[u8]) -> [u8; BLAKE2B_HASH_SIZE] {
     assert!(pub_key.len() == RAW_PUBKEY_SIZE);
     let mut compressed = [0_u8; COMPRESSED_PUBKEY_SIZE];
     compressed[1..COMPRESSED_PUBKEY_SIZE].copy_from_slice(&pub_key[1..COMPRESSED_PUBKEY_SIZE]);
-    if pub_key.last().unwrap() % 2 == 0 {
+    if pub_key.last().unwrap().is_multiple_of(2) {
         compressed[0] = 0x02
     } else {
         compressed[0] = 0x03
