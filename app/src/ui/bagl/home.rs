@@ -1,6 +1,6 @@
 use ledger_device_sdk::include_gif;
 use ledger_device_sdk::io::{self, ApduHeader, Reply};
-use ledger_device_sdk::sys::buttons::ButtonEvent;
+use ledger_device_sdk::buttons::ButtonEvent;
 use ledger_device_sdk::ui::{
     bagls,
     bitmaps::{Glyph, DASHBOARD_X},
